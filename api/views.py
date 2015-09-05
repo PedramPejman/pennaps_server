@@ -23,3 +23,5 @@ def handle_uploaded_file(f):
 
 # Create your views here.
 
+def home(request):
+	return HttpResponse('Hello')
