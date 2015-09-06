@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Visualization</title>
+    <link rel="stylesheet" href="{% static 'scatter.css' %}" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="scatter"></div>
+    <div class="gaps"></div>
+
+    <script language="javascript">var STATIC_URL = "/static/";</script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="{%static 'scatter.js'%}" charset="utf-8"></script>
+  </body>
+</html>

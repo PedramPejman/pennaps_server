@@ -80,6 +80,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+#        'default': {
+#            'ENGINE': 'sqlserver_ado',
+#            'NAME': 'sleepeasy_db',
+#            'USER': 'pedrampejman',
+#            'PASSWORD': 'Peji20??',
+#            'HOST': '*.database.windows.net',
+#            'PORT': '1433',
+#            'OPTIONS': {
+#                'driver': 'SQL Server Native Client 11.0',
+#                'MARS_Connection': 'True',
+#            }
+#        }
+
 }
 
 

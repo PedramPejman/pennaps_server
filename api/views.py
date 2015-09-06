@@ -12,6 +12,10 @@ def accept(request):
 			a = Attachment(file=request.FILES['uploadedfile'])
 			a.save()
 			return HttpResponse('Done')
+		if 'file' in request.FILES:
+			a = Attachment(file=request.FILES['file'])
+			a.save()
+			return HttpResponse('Done')
 	form = UploadFileForm()
 	return render(request, 'form.html', {'form': form})
 
@@ -25,3 +29,6 @@ def handle_uploaded_file(f):
 
 def home(request):
 	return HttpResponse('Hello')
+
+def show(request):
+	return render(request, 'show1.html', {})
