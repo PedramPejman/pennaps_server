@@ -45,10 +45,13 @@ d3.csv(STATIC_URL + "cereal.csv", function(data) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return "<img src= '" + STATIC_URL + "pos1.png' id ='tip-pic' width='70px' height='150px' />";
-      });
+        var html2 = positionPic(d, function(html) {
+        console.log("html", html);
+        return html;
+      })
+    });
 
-  var zoomBeh = d3.behavior.zoom()
+ var zoomBeh = d3.behavior.zoom()
       .x(x)
       .y(y)
       .scaleExtent([0, 500])
@@ -67,6 +70,7 @@ d3.csv(STATIC_URL + "cereal.csv", function(data) {
   svg.append("rect")
       .attr("width", width)
       .attr("height", height);
+
 
   svg.append("g")
       .classed("x axis", true)
@@ -239,4 +243,27 @@ var xValue = function(d) { return d[xCat];};
 
 function mapX(d) { 
   return x(xValue(d));
+}
+
+function positionPic(d, callback) {
+  d3.csv(STATIC_URL + "sleep_positions.csv", function(data2) {
+    data2.forEach(function(e) {
+      e["Time Asleep"] = +e["Time Asleep"];
+      e.Position = +e.Position;
+    });
+
+    var time = d["Time Asleep"];
+
+    var start = 0;
+    var end = 0;
+    for(var i=0; i<data2.length-1; i++) {
+      start = data2[i]["Time Asleep"];
+      end = data2[i+1]["Time Asleep"];
+      if ((time >= start) && (time <= end)) {
+        var xx = "<img src='"+ STATIC_URL +"pos" + data2[i]["Position"] + ".png' width='70px' height='150px' />";
+        callback(xx)
+        break;
+      }
+    }
+  });
 }

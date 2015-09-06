@@ -14,6 +14,13 @@ body {
   margin: 0;
 }
 
+.header {
+  font: 30px Lato;
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
 rect {
   fill: transparent;
   shape-rendering: crispEdges;
@@ -78,7 +85,7 @@ rect {
   position: fixed;
   margin-left: 20px;
   bottom: 0;
-  opacity: 0.5;
+  opacity: 0.1;
   background-image: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255, 0) 90%);
 }
 
