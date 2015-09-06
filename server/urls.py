@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^submit/$', views.accept),
     url(r'^', views.home),
+
 ]
